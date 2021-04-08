@@ -4,16 +4,16 @@
 
 .btn {
   border: none;
-  font-weight: bold;
+  letter-spacing: 1px;
   opacity: 0;
   cursor: pointer;
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-decoration: none;
   padding: 1.5rem 2.5rem;
-  border-radius: 0.6rem;
+  border-radius: 5rem;
   text-transform: uppercase;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
   animation: button1 1.6s forwards;
   animation-delay: 1s;
   position: relative;
