@@ -2,34 +2,92 @@
 // HEADER
 // =======
 
+.mobile-nav--active .header {
+  @include media("<800px") {
+    &__nav {
+      transform: translateX(0%);
+      transition: transform 0.5s ease-in;
+    }
+  }
+}
+
 .header {
   display: flex;
   max-width: 1440px;
   align-items: center;
   margin: 0 auto;
   padding: 5rem 6rem;
-  padding-bottom: 12rem;
+  padding-bottom: 9.5rem;
   position: relative;
+  z-index: 1;
   animation-name: header;
   animation-duration: 2s;
 
+  @include media("<=1050px") {
+    padding-bottom: 6rem;
+  }
+
+  @include media("<800px") {
+    justify-content: space-between;
+  }
+
+  @include media("<600px") {
+    padding: 5rem 2rem;
+  }
+
   &__logo-container {
-    flex: 1;
+    flex: 0 0 20%;
+
+    @include media("<800px") {
+      order: 2;
+      flex: none;
+    }
   }
 
   &__logo {
-    @include media("<=1050px") {
+    @include media("<=1200px") {
       width: 80px;
     }
   }
 
   &__nav {
     flex: 2;
+    @include media("<800px") {
+      position: absolute;
+      top: 12vh;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      transform: translateX(-100%);
+      padding: 2rem 6rem 0rem 6rem;
+      background-color: white;
+      transition: transform 0.5s ease-in;
+      z-index: 5;
+    }
 
     &__list {
       display: flex;
       list-style: none;
       justify-content: space-around;
+
+      @include media("<800px") {
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+      }
+
+      &__item {
+        @include media("<800px") {
+          width: 100%;
+          border-top: 1px solid rgba(0, 0, 0, 9);
+          padding: 2em 0em;
+        }
+        @include media("<800px") {
+          &:last-child {
+            border-bottom: 1px solid rgba(0, 0, 0, 9);
+          }
+        }
+      }
 
       &__link {
         font-size: 2.5rem;
@@ -37,8 +95,16 @@
         color: rgba(102, 102, 102, 0.9);
         font-weight: 500;
         transition: 0.3s all;
-        @include media("<=1050px") {
+        @include media("<=1200px") {
           font-size: 2rem;
+        }
+        @include media(">=800px", "<=950px") {
+          font-size: 1.8rem;
+        }
+        @include media("<800px") {
+          color: black;
+          font-size: 3em;
+          letter-spacing: 3px;
         }
 
         &:hover {
@@ -52,17 +118,36 @@
   }
   &__cta-container {
     display: flex;
-    flex: 1;
+    flex: 0 0 20%;
     justify-content: flex-end;
+    /*     @include media("<800px") {
+      display: none;
+    } */
+    @include media("<800px") {
+      order: 3;
+      flex: 1;
+    }
   }
   &__search-container {
     padding-left: 3rem;
+    @include media("<800px") {
+      padding-left: 1.5rem;
+    }
   }
   &__cart-img,
   &__search-img {
-    @include media("<=1050px") {
+    @include media("<=1200px") {
       width: 85%;
     }
+  }
+}
+
+.hamburger-container {
+  @include media(">=800px") {
+    display: none;
+  }
+  @include media("<800px") {
+    flex: 1;
   }
 }
 
@@ -74,12 +159,22 @@
   display: flex;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0rem 6em;
-  padding-right: 0rem;
+  padding-left: 6rem;
+  justify-content: space-between;
   align-items: center;
+  display: none;
 
-  &__text-wrapper {
-    margin-top: -4rem;
+  @include media("<=1050px") {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @include media(">=600px", "<=1050px") {
+    padding: 0rem 6rem;
+  }
+
+  @include media("<600px") {
+    padding: 0rem 2rem;
   }
 
   &__heading {
@@ -91,21 +186,33 @@
     padding-bottom: 1rem;
     position: relative;
     animation: heading 1.8s;
-    @include media("<=1050px") {
+    @include media(">1050px", "<=1200px") {
       font-size: 7.5rem;
+    }
+    @include media(">=600px", "<=1050px") {
+      font-size: 8rem;
+    }
+    @include media("<600px") {
+      font-size: 8rem;
     }
   }
 
   &__subheading {
-    font-size: 4.5rem;
+    font-size: 5.4rem;
     color: rgba(0, 0, 0, 0.8);
-    letter-spacing: 0.4rem;
+    letter-spacing: 0.2rem;
     padding-bottom: 2rem;
     font-weight: bold;
     animation: heading 1.9s;
     position: relative;
-    @include media("<=1050px") {
+    @include media(">1050px", "<=1200px") {
+      font-size: 3.5rem;
+    }
+    @include media(">=600px", "<=1050px") {
       font-size: 4rem;
+    }
+    @include media("<600px") {
+      font-size: 3.4rem;
     }
 
     span {
@@ -114,7 +221,7 @@
   }
 
   &__desc {
-    font-size: 1.8rem;
+    font-size: 3rem;
     letter-spacing: 0.1rem;
     padding-bottom: 4rem;
     color: rgba(0, 0, 0, 0.8);
@@ -122,24 +229,83 @@
     padding-top: 1rem;
     animation: heading 2s forwards;
     position: relative;
+    @include media(">1050px", "<=1200px") {
+      font-size: 2.2rem;
+    }
+    @include media(">=600px", "<=1050px") {
+      font-size: 2.6rem;
+    }
+    @include media(">=450px", "<600px") {
+      font-size: 2rem;
+    }
+    @include media("<450px") {
+      font-size: 1.6rem;
+    }
   }
 
   &__btn-wrapper {
     display: flex;
+    @include media("<=1050px") {
+      justify-content: center;
+    }
   }
 
   &__btn-one {
     margin-right: 2.5rem;
   }
 
+  &__btn-one,
+  &__btn-two {
+    animation: button1 1.6s forwards;
+    animation-delay: 1s;
+    position: relative;
+    opacity: 0;
+  }
+
+  &__content-wrapper {
+    max-width: 700px;
+    margin-top: -7em;
+    @include media("<=1050px") {
+      margin-top: 0em;
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 4rem;
+    }
+    @include media("<600px") {
+      margin-bottom: 8rem;
+    }
+  }
+
   &__img-wrapper {
     display: flex;
     justify-content: flex-end;
     position: relative;
+    margin-right: -3em;
+    @include media("<=1050px") {
+      margin: 0;
+    }
   }
 
   &__img {
     animation: shoeappear 2.3s;
+    @include media(">=1200px") {
+      width: 630px;
+    }
+    @include media(">1050px", "<=1200px") {
+      width: 530px;
+    }
+    @include media("<=1050px") {
+      width: 480px;
+    }
+    @include media(">=450px", "<600px") {
+      width: 430px;
+    }
+    @include media("<450px") {
+      width: 350px;
+    }
+    @include media("<375px") {
+      width: 280px;
+    }
   }
 
   &__circle {
@@ -149,7 +315,7 @@
     z-index: -1;
     height: 80%;
     width: 80%;
-    opacity: 0.4;
+    opacity: 0.5;
     animation-name: circledrop;
     animation-duration: 2s;
   }
@@ -169,17 +335,36 @@
   opacity: 0.9;
   position: relative;
   animation: footer 2s;
+  display: none;
 
+  @include media("<=1050px") {
+    justify-content: center;
+    padding: 0rem 2rem;
+    padding-bottom: 4rem;
+  }
+
+  @include media("<600px") {
+    padding-top: 2rem;
+  }
+  @include media("<450px") {
+    padding-top: 4rem;
+  }
   &__icons {
     width: 20%;
     display: flex;
     justify-content: flex-end;
-    font-size: 18px;
+    font-size: 20px;
+    @include media("<=1050px") {
+      width: initial;
+    }
 
     &__link {
       text-decoration: none;
       color: white;
-      margin-left: 2rem;
+
+      &:not(:first-child) {
+        margin-left: 2rem;
+      }
     }
 
     &__icon {
@@ -199,9 +384,36 @@
   }
 }
 
+.footer-nav--active {
+  @include media("<800px") {
+    justify-content: center;
+    z-index: 100;
+  }
+}
+
+.footer-nav--active .footer {
+  &__icons {
+    @include media("<800px") {
+      align-self: center;
+      animation: navLinkFade 0.8s;
+    }
+  }
+}
+
 // ==========
 // ANIMATIONS
 // ==========
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 
 @keyframes header {
   0% {

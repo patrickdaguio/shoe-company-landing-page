@@ -11,7 +11,7 @@
     <title>Nike | Home</title>
 </head>
 <body>
-    
+    <div class="container">
     <header class="header">
         <div class="header__logo-container">
             <img class="header__logo" src="/images/home/nike logo.png">
@@ -32,6 +32,13 @@
                 <a href="#" class="header__search"><img src="/images/home/Search.png" class="header__cart-img"></a>
             </div>
         </div>
+        <div class="hamburger-container">
+                <button class="hamburger-menu header__menu">
+                    <span class="hamburger-menu__bar hamburger-menu__bar--1"></span>
+                    <span class="hamburger-menu__bar hamburger-menu__bar--2"></span>
+                    <span class="hamburger-menu__bar hamburger-menu__bar--3"></span>
+                </button>
+        </div>
     </header>
 
     <main class="main">
@@ -40,7 +47,7 @@
                 <div class="product__text-wrapper">
                     <h1 class="product__heading">Nike</h1>
                     <h2 class="product__subheading">Dynamic Pegasus <span>36</span></h2>
-                    <p class="product__desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+                    <p class="product__desc">Nike's revolutionary Air-Sole unit remake from the class 1980 version.</p>
                 </div>
                 <div class="product__btn-wrapper">
                     <div class="product__btn-one">
@@ -56,6 +63,65 @@
                 <img src="/images/home/circle.png" class="product__circle">
             </div>
         </section>
+
+        <section class="modal">
+            <div class="modal__content-wrapper">
+                <div class="modal__text-wrapper">
+                    <h1 class="modal__heading">Pegasus <span>36</span></h1>
+                    <p class="modal__title">Purple Sunrise</p>
+                    <h2 class="modal__price">$120.00</h2>
+                    <p class="modal__desc">Nike's revolutionary Air-Sole unit remake from the class 1980 version.</p>
+                    <div class="modal__options">
+                        <div class="modal__options__color">
+                            <h3 class="modal__options__h1 modal__options__h1--color">Color</h3>
+                            <div class="modal__options__circles">
+                                <div class="modal__circle modal__circle--one">
+                                    <div class="modal__circle__top modal__circle__top--blue"></div>
+                                    <div class="modal__circle__bottom modal__circle__bottom--purple"></div>
+                                </div>
+                                <div class="modal__circle modal__circle--two">
+                                    <div class="modal__circle__top modal__circle__top--lightblue"></div>
+                                    <div class="modal__circle__bottom modal__circle__bottom--orange"></div>
+                                </div>
+                                <div class="modal__circle modal__circle--three">
+                                    <div class="modal__circle__top modal__circle__top--grey"></div>
+                                    <div class="modal__circle__bottom modal__circle__bottom--red"></div>
+                                </div>
+                                <div class="modal__circle modal__circle--four">
+                                    <div class="modal__circle__top modal__circle__top--black"></div>
+                                    <div class="modal__circle__bottom modal__circle__bottom--white"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__options__size">
+                            <h3 class="modal__options__h1 modal__options__h1--size">Size</h3>
+                            <div class="modal__sizes">
+                                <p class="modal__sizes__size">(UK 8)</p>
+                                <p class="modal__sizes__arrow"><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn--blue modal__btn">Add to cart</button>
+                </div>
+                <div class="modal__cta-wrapper">
+                    <div class="modal__ctas">
+                        <p class="modal__ctas__cta modal__ctas__cta--heart"><i class="fas fa-heart"></i></p>
+                        <p class="modal__ctas__cta modal__ctas__cta--close"><i class="fas fa-times"></i></p>
+                    </div>
+                    <div class="modal__choice-wrapper">
+                        <p class="modal__choice modal__choice--left"><i class="fas fa-chevron-left"></i></p>
+                        <div class="modal__choice-circle"></div>
+                        <div class="modal__choice-circle"></div>
+                        <div class="modal__choice-circle"></div>
+                        <div class="modal__choice-circle"></div>
+                        <p class="modal__choice modal__choice--right"><i class="fas fa-chevron-right"></i></p>
+                    </div>
+                </div>
+                <div class="modal__product__img-wrapper">
+                    <img src="/images/Main shoe.png" alt="Purple Sunrise" class="modal__product__img">
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -65,7 +131,7 @@
             <a href="#" class="footer__icons__link"><p class="footer__icons__icon"><i class="fab fa-instagram"></i></p></a>
         </div>
     </footer>
-
+</div>
     <script src="https://kit.fontawesome.com/66d1c73752.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
