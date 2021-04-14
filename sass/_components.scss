@@ -16,16 +16,8 @@
   text-transform: uppercase;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
   outline: none;
+  position: relative;
   overflow: hidden;
-
-  @include media(">=1200px") {
-    font-size: 1.8rem;
-  }
-
-  @include media("<600px") {
-    font-size: 1.4rem;
-    padding: 1.5rem 2.5rem;
-  }
 
   &--grey {
     background-color: rgba(34, 34, 34, 0.9);
@@ -83,6 +75,7 @@
     width: 18px;
     display: inline-block;
     transition: all 0.5s;
+    border-radius: 10px;
   }
 }
 
@@ -110,17 +103,30 @@
 // PRODUCT MODAL
 // =============
 
+.displayOn {
+  display: flex !important;
+}
+
+.displayOff {
+  display: none !important;
+}
+
 .modal {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
+  z-index: 10;
+  @include media("<550px") {
+    padding: 2rem;
+    padding-bottom: 4rem;
+  }
   &__content-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4);
     border-radius: 14px;
-    position: relative;
+    background-color: white;
     @include media("<=1050px") {
       flex-direction: column;
     }
@@ -132,15 +138,33 @@
     @include media("<=1050px") {
       text-align: center;
     }
+    @include media("<=550px") {
+      padding: 4rem 2rem;
+      max-width: 330px;
+    }
   }
 
-  &__product__img-wrapper {
-    position: absolute;
-    right: -70px;
-    top: 0;
-    @include media("<=1050px") {
+  &__product {
+    position: relative;
+
+    &__img-wrapper {
+      position: absolute;
       right: -70px;
-      top: 450px;
+      top: -230px;
+      @include media("<=1050px") {
+        right: -305px;
+        top: -450px;
+      }
+      @include media("<=550px") {
+        right: -218px;
+        top: -400px;
+      }
+    }
+
+    &__img {
+      @include media("<=550px") {
+        width: 420px;
+      }
     }
   }
 
@@ -157,7 +181,12 @@
       border-top-right-radius: 0px;
       border-bottom-left-radius: 14px;
       width: 450px;
-      height: 460px;
+      height: 430px;
+    }
+
+    @include media("<=550px") {
+      width: 330px;
+      height: 430px;
     }
 
     &::before {
@@ -194,7 +223,7 @@
       cursor: pointer;
       transition: 0.3s color;
       &:hover {
-        color: rgba(151, 133, 189, 0.6);
+        color: rgba(0, 99, 164, 0.6);
       }
 
       &--heart {
@@ -210,10 +239,13 @@
     display: flex;
     align-items: center;
     position: absolute;
-    bottom: 80px;
+    bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    @include media("<550px") {
+      bottom: 90px;
+    }
   }
 
   &__choice-circle {
@@ -223,12 +255,22 @@
     border-radius: 50%;
     margin-right: 1.5rem;
     cursor: pointer;
+    transition: 0.3s background-color;
+
+    &:hover {
+      background-color: rgba(0, 99, 164, 0.6);
+    }
   }
 
   &__choice {
     font-size: 2.5rem;
     color: white;
     cursor: pointer;
+    transition: 0.3s color;
+
+    &:hover {
+      color: rgba(0, 99, 164, 0.6);
+    }
 
     &--left {
       margin-right: 1.5rem;
@@ -269,6 +311,10 @@
   &__options {
     display: flex;
     margin-top: 3rem;
+
+    @include media("<=1050px") {
+      justify-content: center;
+    }
 
     &__color {
       border-right: 1px solid rgba(0, 0, 0, 0.6);
@@ -353,8 +399,5 @@
     margin-top: 5rem;
     border-radius: 5px;
     padding: 1.3rem 2.3rem;
-    span {
-      display: none;
-    }
   }
 }

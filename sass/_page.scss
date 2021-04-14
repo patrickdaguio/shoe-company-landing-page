@@ -11,6 +11,10 @@
   }
 }
 
+.mobile-nav--active .fadeIn {
+  opacity: 1;
+}
+
 .header {
   display: flex;
   max-width: 1440px;
@@ -21,7 +25,7 @@
   position: relative;
   z-index: 1;
   animation-name: header;
-  animation-duration: 2s;
+  animation-duration: 1s;
 
   @include media("<=1050px") {
     padding-bottom: 6rem;
@@ -81,9 +85,18 @@
           width: 100%;
           border-top: 1px solid rgba(0, 0, 0, 9);
           padding: 2em 0em;
-        }
-        @include media("<800px") {
-          &:last-child {
+          opacity: 0;
+          &:nth-child(1) {
+            transition: opacity 0.3s ease 0.1s;
+          }
+          &:nth-child(2) {
+            transition: opacity 0.3s ease 0.3s;
+          }
+          &:nth-child(3) {
+            transition: opacity 0.3s ease 0.5s;
+          }
+          &:nth-child(4) {
+            transition: opacity 0.3s ease 0.7s;
             border-bottom: 1px solid rgba(0, 0, 0, 9);
           }
         }
@@ -106,7 +119,6 @@
           font-size: 3em;
           letter-spacing: 3px;
         }
-
         &:hover {
           color: #0063a4;
         }
@@ -155,6 +167,10 @@
 // MAIN
 // ====
 
+.modal__open {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .product {
   display: flex;
   max-width: 1440px;
@@ -162,7 +178,6 @@
   padding-left: 6rem;
   justify-content: space-between;
   align-items: center;
-  display: none;
 
   @include media("<=1050px") {
     flex-direction: column;
@@ -184,8 +199,6 @@
     text-transform: uppercase;
     letter-spacing: 0.4rem;
     padding-bottom: 1rem;
-    position: relative;
-    animation: heading 1.8s;
     @include media(">1050px", "<=1200px") {
       font-size: 7.5rem;
     }
@@ -203,8 +216,6 @@
     letter-spacing: 0.2rem;
     padding-bottom: 2rem;
     font-weight: bold;
-    animation: heading 1.9s;
-    position: relative;
     @include media(">1050px", "<=1200px") {
       font-size: 3.5rem;
     }
@@ -227,8 +238,6 @@
     color: rgba(0, 0, 0, 0.8);
     font-weight: 500;
     padding-top: 1rem;
-    animation: heading 2s forwards;
-    position: relative;
     @include media(">1050px", "<=1200px") {
       font-size: 2.2rem;
     }
@@ -254,17 +263,22 @@
     margin-right: 2.5rem;
   }
 
-  &__btn-one,
-  &__btn-two {
-    animation: button1 1.6s forwards;
-    animation-delay: 1s;
-    position: relative;
-    opacity: 0;
+  &__cta {
+    @include media(">=1200px") {
+      font-size: 1.8rem;
+    }
+
+    @include media("<600px") {
+      font-size: 1.4rem;
+      padding: 1.5rem 2.5rem;
+    }
   }
 
   &__content-wrapper {
-    max-width: 700px;
+    max-width: 800px;
     margin-top: -7em;
+    animation: heading 1s;
+
     @include media("<=1050px") {
       margin-top: 0em;
       text-align: center;
@@ -287,7 +301,7 @@
   }
 
   &__img {
-    animation: shoeappear 2.3s;
+    animation: shoeappear 1.3s;
     @include media(">=1200px") {
       width: 630px;
     }
@@ -316,8 +330,7 @@
     height: 80%;
     width: 80%;
     opacity: 0.5;
-    animation-name: circledrop;
-    animation-duration: 2s;
+    animation: circledrop 1.1s;
   }
 }
 
@@ -329,22 +342,18 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0rem 6rem;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
+  margin-top: -4rem;
   justify-content: flex-end;
   display: flex;
   opacity: 0.9;
   position: relative;
-  animation: footer 2s;
-  display: none;
+  animation: footer 1s;
 
   @include media("<=1050px") {
     justify-content: center;
-    padding: 0rem 2rem;
+    padding: 2rem 2rem;
     padding-bottom: 4rem;
-  }
-
-  @include media("<600px") {
-    padding-top: 2rem;
   }
   @include media("<450px") {
     padding-top: 4rem;
@@ -395,8 +404,20 @@
   &__icons {
     @include media("<800px") {
       align-self: center;
-      animation: navLinkFade 0.8s;
+      animation: footer 1s;
     }
+  }
+}
+
+.footer-modal--active {
+  margin-top: 13.2rem;
+  pointer-events: none;
+  z-index: -2;
+  @include media("<=1050px") {
+    margin-top: 6rem;
+  }
+  @include media("<=550px") {
+    margin-top: 2rem;
   }
 }
 
@@ -428,9 +449,11 @@
 
 @keyframes heading {
   0% {
+    opacity: 0;
     left: -100%;
   }
   100% {
+    opacity: 1;
     left: 0%;
   }
 }
@@ -444,15 +467,6 @@
   }
   60% {
     opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes button1 {
-  0% {
-    opacity: 0;
   }
   100% {
     opacity: 1;
@@ -473,9 +487,11 @@
 
 @keyframes footer {
   0% {
+    opacity: 0;
     transform: translateX(500px);
   }
   100% {
+    opacity: 1;
     transform: translateX(0px);
   }
 }

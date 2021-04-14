@@ -1,3 +1,31 @@
+:root {
+  --color-blue: #0063a4;
+  --color-lightblue: #78bbcc;
+  --color-grey: #464349;
+  --color-black: #0d0d0d;
+
+  --color-purple: #1b085b;
+  --color-orange: #fa7060;
+  --color-red: #b2223f;
+  --color-lightgrey: #c6c6cf;
+
+  --color-white: hsl(0, 0%, 100%);
+
+  --color-light-red: rgba(196, 82, 105, 0.6);
+  --color-very-lightpurple: rgba(151, 133, 189, 0.6);
+  --color-light-orange: rgba(251, 137, 124, 0.6);
+  --color-very-lightgray: rgba(194, 194, 203, 0.6);
+
+  --color-dark-grey: #3b3e3e;
+  --color-greyish-brown: #6a5858;
+  --color-lighter-black: rgba(0, 0, 0, 0.8);
+  --color-light-purple: rgba(54, 32, 118, 0.8);
+  --color-lighter-blue: rgba(0, 99, 164, 0.6);
+  --color-lighter-red: rgba(178, 34, 63, 0.6);
+  --color-lighter-orange: rgba(250, 112, 96, 0.6);
+  --color-very-lightblack: rgba(59, 62, 62, 0.6);
+}
+
 html {
   box-sizing: border-box;
   font-size: 10px;
@@ -13,19 +41,13 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
-  overflow: hidden;
-  @include media("<=1050px") {
-    overflow: auto;
-  }
+  overflow-x: hidden;
 }
 
 .container {
-  overflow: hidden;
   position: relative;
   height: 100vh;
-  @include media("<=1050px") {
-    overflow: auto;
-  }
+  overflow-x: hidden;
 }
 
 .disable-scroll {
