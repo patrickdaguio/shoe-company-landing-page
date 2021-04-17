@@ -32,7 +32,7 @@ const links = document.querySelectorAll('.header__nav__list__item')
 // FUNCTIONS
 
 function disableScroll() {
-    body.classList.toggle('disable-scroll')
+    container.classList.toggle('disable-scroll')
 }
 
 function toggleMobileNav() {
@@ -66,6 +66,7 @@ function closeModal() {
     modalContainer.style.display = 'none'
     productContainer.style.display = 'flex'
     footer.classList.remove('footer-modal--active')
+    header.style.pointerEvents = 'auto'
 }
 
 // EVENT LISTENER
@@ -77,3 +78,54 @@ hamburgerMenu.addEventListener('click', () => {
 
 modalBtn.addEventListener('click', openModal)
 exitModal.addEventListener('click', closeModal)
+
+// ==============
+// | SHOE THEME |
+// ==============
+
+const modalCircles = document.querySelectorAll('.modal__circle')
+const modalTitle = document.querySelector('.modal__title')
+const modalImg = document.querySelector('.modal__product__img')
+const modalImgWrapper = document.querySelector('.modal__product__img-wrapper')
+
+function changeTheme() {
+  let regex = /[^0-9\.]+/gi
+  modalImgWrapper.classList.remove('shoe-animation')
+  window.requestAnimationFrame(() => modalImgWrapper.classList.add('shoe-animation'))
+  if (this.classList.contains('modal__circle--one')) {
+    if (body.className.match(regex)) {
+      body.className = body.className.replace(regex, 'shoe-purple-theme')
+      modalTitle.innerText = 'Purple Sunrise'
+      modalImg.src = "/images/themes/purple.png"
+      modalImgWrapper.classList.remove('theme__img')
+      modalImgWrapper.classList.remove('theme__img-1')
+    }
+  } else if (this.classList.contains('modal__circle--two')) {
+    if (body.className.match(regex)) {
+      body.className = body.className.replace(regex, 'shoe-orange-theme')
+      modalTitle.innerText = 'Orange Sunset'
+      modalImg.src = "/images/themes/orange1.png"
+      modalImgWrapper.classList.remove('theme__img-1')
+      modalImgWrapper.classList.add('theme__img')
+    }
+  } else if (this.classList.contains('modal__circle--three')) {
+    if (body.className.match(regex)) {
+      body.className = body.className.replace(regex, 'shoe-red-theme')
+      modalTitle.innerText = 'Grey Heat'
+      modalImg.src = "/images/themes/red1.png"
+      modalImgWrapper.classList.remove('theme__img-1')
+      modalImgWrapper.classList.add('theme__img')
+    }
+  } else {
+    if (body.className.match(regex)) {
+      body.className = body.className.replace(regex, 'shoe-black-theme')
+      modalTitle.innerText = 'Moonlight'
+      modalImg.src = "/images/themes/black1.png"
+      modalImgWrapper.classList.add('theme__img-1')
+    }
+  }
+}
+
+modalCircles.forEach(circle => {
+    circle.addEventListener('click', changeTheme)
+})

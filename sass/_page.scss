@@ -277,7 +277,7 @@
   &__content-wrapper {
     max-width: 800px;
     margin-top: -7em;
-    animation: heading 1s;
+    animation: heading 1.8s;
 
     @include media("<=1050px") {
       margin-top: 0em;
@@ -395,17 +395,11 @@
 
 .footer-nav--active {
   @include media("<800px") {
-    justify-content: center;
     z-index: 100;
-  }
-}
-
-.footer-nav--active .footer {
-  &__icons {
-    @include media("<800px") {
-      align-self: center;
-      animation: footer 1s;
-    }
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    animation: mobileFooter 1s forwards;
   }
 }
 
@@ -493,5 +487,16 @@
   100% {
     opacity: 1;
     transform: translateX(0px);
+  }
+}
+
+@keyframes mobileFooter {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%);
   }
 }
