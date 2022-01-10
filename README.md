@@ -4,6 +4,8 @@ A fully responsive landing page for a shoe company product launch made for the p
 
 ![Website preview)](https://user-images.githubusercontent.com/56409227/148761885-7b0ff4ae-aaf3-4eb7-a4ce-cbeea65e111d.png)
 
+> Click 'Know More' button to see product preview
+
 [View live website](https://shoe-product-landing-page.vercel.app/)
 
 ---
@@ -12,6 +14,7 @@ A fully responsive landing page for a shoe company product launch made for the p
 
 - HTML5/CSS3
 - SCSS (BEM Methodology)
+- CSS Custom Properties
 - Javascript (ES6+)
 
 ---
