@@ -10,7 +10,7 @@ A fully responsive landing page for a shoe company product launch made for the p
 
 ---
 
-## Technologies
+### Technologies
 
 - HTML5/CSS3
 - SCSS (BEM Methodology)
@@ -19,7 +19,7 @@ A fully responsive landing page for a shoe company product launch made for the p
 
 ---
 
-## Designs
+### Designs
 
 Below are the designs for the other pages on the website (excluding the navbar)
 
