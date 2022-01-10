@@ -23,7 +23,7 @@ A fully responsive landing page for a shoe company product launch made for the p
 
 Below are the designs for the other pages on the website (excluding the navbar)
 
-![Preview of page designs](https://user-images.githubusercontent.com/56409227/148774081-80ae7110-789b-4bce-8300-b780f39c5a2c.gif)
+![Preview of page designs](https://user-images.githubusercontent.com/56409227/148774356-66509465-b080-4449-8f6f-a2788a156f9a.gif)
 
 ---
 
