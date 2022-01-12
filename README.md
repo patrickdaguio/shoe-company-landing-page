@@ -2,9 +2,9 @@
 
 A fully responsive landing page for a shoe company product launch made for the purpose of improving front-end skills.
 
-![Website preview)](https://user-images.githubusercontent.com/56409227/148761885-7b0ff4ae-aaf3-4eb7-a4ce-cbeea65e111d.png)
+![Product Preview](https://user-images.githubusercontent.com/56409227/149118006-68f0e3da-f801-47ff-8e3e-a040c6e9e671.png)
 
-> Click 'Know More' button to see product preview
+> Click 'Know More' on website button to see product preview
 
 ### [View live website](https://shoe-product-landing-page.vercel.app/)
 
